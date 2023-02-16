@@ -1,16 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import navbar from "./Navbar";
-import Welcome from "./Welcome";
+import App from "./App";
 
 
-// create render function  
-const render = (content , id) =>{
-  ReactDOM.render(content, document.getElementById(id));
-}
+const el = document.getElementById('root');
+const root = ReactDOM.createRoot(el);
 
-
-// call render function
-render(navbar, 'nav')
-render(<Welcome name="eka"  />, 'root')
+/*
+root.render() 
+digunakan untuk merender component yang telah di buat
+*/ 
+root.render(<App />);
 
