@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import "./App.css";
+import { CommentContent } from "semantic-ui-react";
 
 function App() {
   /*
+  
   mengunakan state agar mudah
   untuk mengeset data yang akan di parse ke bagian frontend
   */
+ 
   const [formValues, setFormValues] = useState({});
   /*
   function handleChange digunakan untuk 
