@@ -1,30 +1,45 @@
-import React from "react";
-import "./App.css";
-import unsplash from "./unsplash";
-import SearchBar from "./components/SeacrhBar";
-import ImageList from "./components/ImageList";
-
+import React from 'react';
+import SearchBarYT from './components/youtube/SearchBarYt';
+import VideoList from './components/youtube/VideoList';
+import VideoDetail from './components/youtube/VideoDetail';
+import youtubeApi from './youtubeApi';
 
 class App extends React.Component {
-state = {images: []};
+    state = {
+        videos: [],
+        selectedVideo: null
+    }
+    handleSubmit = async (termFromSearchBar) => {
+        const response = await youtubeApi.get('/search', {
+            params: {
+                q: termFromSearchBar
+            }
+        })
+        this.setState({
+            videos: response.data.items
+        })
+    };
+    handleVideoSelect = (video) => {
+        this.setState({selectedVideo: video})
+    }
 
-onSearchSubmit = async (term) => {
-  const response = await unsplash.get("/search/photos", {
-    params : { query: term}
-  });
-
-  this.setState({ images: response.data.results  });
-  console.log(response.data.results);
-}
-render() {
-    return(
-      <div className="ui container" style={{ marginTop: "10px" }}>
-        <span>Found: {this.state.images.length}</span>
-        <SearchBar onSubmit={this.onSearchSubmit} />
-        <ImageList foundImages={this.state.images}  />
-      </div>
-    )
-  }  
+    render() {
+        return (
+            <div className='ui container' style={{marginTop: '1em'}}>
+                <SearchBarYT handleFormSubmit={this.handleSubmit}/>
+                <div className='ui grid'>
+                    <div className="ui row">
+                        <div className="eleven wide column">
+                            <VideoDetail video={this.state.selectedVideo}/>
+                        </div>
+                        <div className="five wide column">
+                            <VideoList handleVideoSelect={this.handleVideoSelect} videos={this.state.videos}/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
 }
 
 export default App;

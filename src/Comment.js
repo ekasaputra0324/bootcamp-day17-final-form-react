@@ -1,6 +1,6 @@
 
 import React from "react";
-import CommentContainer from "./components/CommentContainer";
+import CommentContainer from "./components/Comment/CommentContainer";
 import moment from "moment/moment";
 
 
