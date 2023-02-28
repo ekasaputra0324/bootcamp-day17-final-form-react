@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 
 
 /*
@@ -23,4 +23,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps)(UserList);
+// export default connect(mapStateToProps)(UserList);

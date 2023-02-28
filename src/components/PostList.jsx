@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 
 import { fetchPosts, fetchPostsAndUsers } from "../action/action";
 import UserList from "./UserList";
@@ -44,6 +44,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchPosts, fetchPostsAndUsers })(
-  PostList
-);
+// export default connect(mapStateToProps, { fetchPosts, fetchPostsAndUsers })(
+//   PostList
+// );

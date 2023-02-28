@@ -1,12 +1,13 @@
-
 import React from "react";
-import PostList from "./components/PostList";
+
+import FormEmployee from "./components/FormEmployee";
+
+
+
 
 export default function App() {
   return (
-    <div className="ui container">
-      <PostList />
-    </div>
+    <FormEmployee />
   );
 }
 
